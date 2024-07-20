@@ -27,9 +27,8 @@ document.addEventListener('deviceready', function(){
   }
 }, 
 false);
+window.addEventListener("popstate", function(event) {
+  const param = window.location.href.split('#')[1];
+  console.log(param);
+}, true); 
 
-$('#login').on('click', function(){
-  const user = $('#input_user_name').val();
-  const pass = $('#input_user_password').val();
-  alert(user + '\n' + pass)
-})
