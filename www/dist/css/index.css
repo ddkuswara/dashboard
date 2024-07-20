@@ -11,3 +11,11 @@ body {
 .brand-link{
   padding-top: 2.3rem;
 }
+.nav-item .title{
+  font-size: 18px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.content-wrapper > .content {
+ padding: 0 !important;
+}
