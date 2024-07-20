@@ -19,8 +19,17 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
+document.addEventListener('deviceready', function(){
+  console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+  if (cordova.platformId == 'android') {
+    StatusBar.overlaysWebView(true);
+    StatusBar.styleDefault();
+  }
+}, 
+false);
 
-function onDeviceReady() {
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-}
+$('#login').on('click', function(){
+  const user = $('#input_user_name').val();
+  const pass = $('#input_user_password').val();
+  alert(user + '\n' + pass)
+})

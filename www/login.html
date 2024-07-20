@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Log in</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/index.css">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+
+</div>
+
+<script src="cordova.js"></script>
+
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="dist/js/adminlte.min.js"></script>
+<script src="dist/js/index.js"></script>
+<script>
+  var loginHtml = `
+    <h1 class="text-center">Login</h1>
+    <div class="form-group">
+      <input type="text" class="form-control text-center rounded-pill form-control-border" id="input_user_name" placeholder="Your Username">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control text-center rounded-pill form-control-border" id="input_user_password" placeholder="Your Password">
+    </div>
+    <h5 class="text-center"><a href="#" id="login">Sign In</a></h5>
+    <p class="text-center">Masukan User dan Password Yang Dimilik</p>
+    <div class="d-flex">
+      <a href="#forgot" style="width: 50%;">Reset Password</a>
+      <a href="#register" class="text-right" style="width: 50%;">Daftar Users</a>
+    </div>`;
+  var registerHtml = `
+    <h1 class="text-center">Register a new membership</h1>
+    <div class="form-group">
+      <input type="text" class="form-control text-center rounded-pill form-control-border" id="input_user_name" placeholder="Your Username">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control text-center rounded-pill form-control-border" id="input_user_name" placeholder="Your Email">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control text-center rounded-pill form-control-border" id="input_user_password" placeholder="Your Password">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control text-center rounded-pill form-control-border" id="input_user_name" placeholder="Your Retype Password">
+    </div>
+    <h5 class="text-center"><a href="#" id="login">Register</a></h5>
+    <a href="#login" class="text-center" style="width: 100%;">I already have a membership</a>`;
+  var forgotHtml = `
+    <h1 class="text-center">Forgot your password?</h1>
+    <p class="text-center">You forgot your password? Here you can easily retrieve a new password.</p>
+    <div class="form-group">
+      <input type="text" class="form-control text-center rounded-pill form-control-border" id="input_user_name" placeholder="Your Email">
+    </div>
+    <h5 class="text-center"><a href="#" id="login">Sign In</a></h5>
+    <p class="text-center">Masukan User dan Password Yang Dimilik</p>
+    <div class="d-flex">
+      <a href="#login" style="width: 50%;">Sign In</a>
+      <a href="#register" class="text-right" style="width: 50%;">Daftar Users</a>
+    </div>`;
+    $('.login-box').html( loginHtml );
+  window.addEventListener("popstate", function(event) {
+    const param = window.location.href.split('#')[1];
+    switch(param){
+      case 'forgot':
+        $('.login-box').html( forgotHtml );
+        break;
+      case 'register':
+        $('.login-box').html( registerHtml );
+        break;
+      default:
+        $('.login-box').html( loginHtml );
+    }  
+  }, true);  
+</script>
+</body>
+</html>
